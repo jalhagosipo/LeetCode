@@ -43,3 +43,41 @@ class Solution {
         if(node.right != null) checkSumOfTree(node.right, level + 1);
     }
 }
+
+// bfs 방식. 나보다빠름
+    //public int maxLevelSum(TreeNode root) {
+    //
+    //    int res = 1;
+    //    int level = 1;
+    //    int maxSum = root.val;
+    //
+    //    Queue<TreeNode> q = new LinkedList<>();
+    //    q.add(root);
+    //
+    //    while(!q.isEmpty()) {
+    //        int size = q.size();
+    //        int sum = 0;
+    //        for(int i = 0; i < size; i++) {
+    //            TreeNode cur = q.remove();
+    //
+    //            sum += cur.val;
+    //
+    //            if(cur.left != null) {
+    //                q.add(cur.left);
+    //            }
+    //
+    //            if(cur.right != null) {
+    //                q.add(cur.right);
+    //            }
+    //        }
+    //
+    //        if(maxSum < sum) {
+    //            maxSum = sum;
+    //            res = level;
+    //        }
+    //
+    //        level++;
+    //    }
+    //
+    //    return res;
+    //}
