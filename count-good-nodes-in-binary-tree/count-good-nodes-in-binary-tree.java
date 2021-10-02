@@ -14,20 +14,18 @@
  * }
  */
 class Solution {
-    public int goodNodes(TreeNode root) {
-         return countGoodNodes(root, 0, root.val);
+     public int goodNodes(TreeNode root) {
+        return checkNode(root, root.val, 0);
     }
 
-    private int countGoodNodes(TreeNode node, int res, int max) {
-         int cur = node.val;
-         if(cur >= max) {
-             res++;
-             max = cur;
-         }
-
-         int leftRes = 0, rightRes = 0;
-         if(node.left != null) leftRes = countGoodNodes(node.left, 0, max);
-         if(node.right != null) rightRes = countGoodNodes(node.right, 0, max);
-         return res + leftRes + rightRes;
+    private int checkNode(TreeNode node, int max, int res) {
+        if(max <= node.val) {
+            max = node.val;
+            res++;
+        }
+        int leftRes = 0, rightRes = 0;
+        if(node.left != null) leftRes = checkNode(node.left, max, 0);
+        if(node.right != null) rightRes = checkNode(node.right, max, 0);
+        return leftRes + rightRes + res;
     }
 }
